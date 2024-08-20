@@ -15,18 +15,15 @@ public class Program
 
         var app = builder.Build();
 
+        app.UsePathBase("/api");
+
+        app.UseRouting();
+
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger(c =>
-            {
-                c.RouteTemplate = "api/swagger/{documentname}/swagger.json";
-            });
-
-            app.UseSwaggerUI(c =>
-            {
-                c.RoutePrefix = "api/swagger";
-            });
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
 
         app.UseHttpsRedirection();
