@@ -1,6 +1,12 @@
 import "./App.css";
 
 function App() {
+  const images = [
+    "https://placehold.co/400",
+    "https://placehold.co/400",
+    "https://placehold.co/400",
+    "https://placehold.co/400",
+  ];
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
@@ -10,8 +16,8 @@ function App() {
       </div>
 
       <div className="carousel rounded-box">
-        {[, , , ,].map((image) => (
-          <div className="carousel-item">
+        {images.map((image, index) => (
+          <div key={index} className="carousel-item">
             <img src="https://placehold.co/400" />
           </div>
         ))}
