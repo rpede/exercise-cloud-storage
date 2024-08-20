@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9">
+          Image Uploader
+        </h2>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+
+      <div className="carousel rounded-box">
+        {[, , , ,].map((image) => (
+          <div className="carousel-item">
+            <img src="https://placehold.co/400" />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-2">
+          <input
+            type="file"
+            className="file-input w-full"
+            onChange={(e) => e.target.files?.[0]}
+          />
+        </div>
+
+        <button
+          className="btn btn-primary w-full justify-center mt-6"
+          onClick={(e) => {}}
+        >
+          Upload
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class ImageController : ControllerBase
 {
     private readonly ILogger<ImageController> _logger;
@@ -13,7 +13,13 @@ public class ImageController : ControllerBase
         _logger = logger;
     }
 
-    // TODO implement endpoint up upload image to Cloud Storage.
-    // Then either implement an enpoint that returns the URL to uploaded image
-    // or the image data.
+    // TODO: either implement an enpoint that returns medialink or the image
+    // data.
+
+    [HttpPost]
+    public IActionResult Upload(IFormFile file)
+    {
+        // TODO: upload image to Cloud Storage.
+        throw new NotImplementedException("Upload not implemented yet.");
+    }
 }
