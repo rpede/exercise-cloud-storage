@@ -1,12 +1,33 @@
+import { useEffect, useState, ChangeEvent } from "react";
 import "./App.css";
 
 function App() {
-  const images = [
-    "https://placehold.co/400",
-    "https://placehold.co/400",
-    "https://placehold.co/400",
-    "https://placehold.co/400",
-  ];
+  const [file, setFile] = useState<File>();
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchImages().then((data) => setImages(data));
+  }, []);
+
+  async function fetchImages() {
+    // TODO: Change to get list of image urls from server
+    return [
+      "https://placehold.co/400",
+      "https://placehold.co/400",
+      "https://placehold.co/400",
+      "https://placehold.co/400",
+    ];
+  }
+
+  function fileChange(e: ChangeEvent<HTMLInputElement>) {
+    setFile(e.target.files?.[0]);
+  }
+
+  async function submit() {
+    // TODO: Post the image from `file` variable to server
+    await fetchImages();
+  }
+
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
@@ -28,13 +49,13 @@ function App() {
           <input
             type="file"
             className="file-input w-full"
-            onChange={(e) => e.target.files?.[0]}
+            onChange={fileChange}
           />
         </div>
 
         <button
           className="btn btn-primary w-full justify-center mt-6"
-          onClick={(e) => {}}
+          onClick={submit}
         >
           Upload
         </button>

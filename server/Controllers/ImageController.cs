@@ -13,8 +13,13 @@ public class ImageController : ControllerBase
         _logger = logger;
     }
 
-    // TODO: either implement an enpoint that returns medialink or the image
-    // data.
+    [HttpGet]
+    public IEnumerable<string> List()
+    {
+        // TODO: either implement an endpoint that returns medialink of the
+        // objects in your storage bucket.
+        throw new NotImplementedException("Upload not implemented yet.");
+    }
 
     [HttpPost]
     public IActionResult Upload(IFormFile file)

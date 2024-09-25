@@ -18,3 +18,13 @@ dotnet watch --project server
 ```
 
 <http://localhost:5015/api/swagger/index.html>
+
+## Scaffold
+
+To generate TypeScript code for interacting with the server run:
+
+```sh
+npm run scaffold --prefix client
+```
+
+[Watch](https://www.youtube.com/watch?v=M3kTvIgj__4) for an explanation.
