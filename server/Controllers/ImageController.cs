@@ -16,15 +16,14 @@ public class ImageController : ControllerBase
     [HttpGet]
     public IEnumerable<string> List()
     {
-        // TODO: either implement an endpoint that returns medialink of the
-        // objects in your storage bucket.
+        // TODO: return medialink of the objects in your storage bucket.
         throw new NotImplementedException("Upload not implemented yet.");
     }
 
     [HttpPost]
     public IActionResult Upload(IFormFile file)
     {
-        // TODO: upload image to Cloud Storage.
+        // TODO: upload image to Cloud Storage bucket.
         throw new NotImplementedException("Upload not implemented yet.");
     }
 }
